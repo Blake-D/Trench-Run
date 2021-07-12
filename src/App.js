@@ -1,11 +1,14 @@
+import { BrowserRouter as Router, Route } from 'react-router-dom'
 import './App.css'
 import Title from './components/Title'
+import Assemble from './components/Assemble'
 
 function App() {
   return (
-    <div className="App">
-      <Title />
-    </div>
+    <Router>
+      <Route exact path='/' render={Title} />
+      <Route path='/assemble' render={Assemble} />
+    </Router>
   )
 }
 

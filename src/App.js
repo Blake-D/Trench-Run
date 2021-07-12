@@ -4,30 +4,26 @@ import './App.css'
 import Title from './components/Title'
 import Assemble from './components/Assemble'
 const axios = require('axios')
+const cors = require('cors')
 const STAR_WARS_URL = process.env.STAR_WARS_URL
 
 function App() {
 
-  const [shipOptions, setShipOptions] = useState([])
+  const [ships, setShips] = useState([])
 
   useEffect(() => {
-    Promise.all([
-      axios.get('https://swapi.dev/api/starships/?page=1'),
-      axios.get('https://swapi.dev/api/starships/?page=2'),
-      axios.get('https://swapi.dev/api/starships/?page=3'),
-      axios.get('https://swapi.dev/api/starships/?page=4')
-    ]).then(resPlural => {
-      let shipData = resPlural.map(resSing => {
-        return resSing.data.results
-      })
-      setShipOptions([...shipOptions, shipData])
-    }).catch(err => console.log(err))
+    axios.get('http://localhost:8000/')
+    .then(shipData => {
+      setShips(shipData.data)
+    })
   }, [])
+
+  console.log(ships)
 
   return (
     <Router>
       <Route exact path='/' render={Title} />
-      <Route path='/assemble' render={Assemble} />
+      <Route path='/assemble' render={() => <Assemble ships={ships} /> } />
     </Router>
   )
 }

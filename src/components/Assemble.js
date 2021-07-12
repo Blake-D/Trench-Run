@@ -1,7 +1,10 @@
-function Assemble(){
+function Assemble(props){
+    console.log(props.ship)
     return(
         <div>
-            <h1>Select five ships to mount your attack!</h1>
+            {props.ships.map(ship => (
+                <img src={`https://swgoh.gg/${ship.image}`} width="200" height="200"/>        
+            ))}
         </div>
     )
 }

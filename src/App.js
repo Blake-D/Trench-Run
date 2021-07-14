@@ -36,16 +36,12 @@ function App() {
     }
   }
 
-  // if(redirect){
-
-  // }
-
   return (
     <div>
       <Router>
         <Route exact path='/' render={Title} />
-        <Route path='/assemble' render={() => <Assemble ships={ships} addShip={addShip} />} />
-        <Route  exact path='/battle' render={Battle} />
+        <Route path='/assemble' render={() => <Assemble ships={ships} addShip={addShip} myShips={myShips} />} />
+        <Route path='/battle' render={() => <Battle myShips={myShips} /> } />
       </Router>
     </div>
   )

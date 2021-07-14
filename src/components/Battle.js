@@ -1,7 +1,12 @@
-function Battle(){
+function Battle(props){
+    let myShips = props.myShips.map(ship => {
+        return <li>{ship}</li>
+    })
     return(
         <div>
-            <h1>let's do battle!</h1>
+            <ul>
+                {myShips}
+            </ul>
         </div>
     )
 }

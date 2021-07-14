@@ -1,10 +1,11 @@
 function Assemble(props){
-    console.log(props.ship)
+    console.log(props)
+    let availableShips = props.ships.map((ship, i) => {
+        return <li onClick={props.addShip}>{ship.name}</li>
+    })
     return(
         <div>
-            {props.ships.map(ship => (
-                <img src={`https://swgoh.gg/${ship.image}`} width="200" height="200"/>        
-            ))}
+            <ul>{availableShips}</ul>
         </div>
     )
 }

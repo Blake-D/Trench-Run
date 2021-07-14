@@ -21,8 +21,15 @@ function App() {
     })
   }, [])
 
-  function addShip(){
-    console.log('addShip firing')
+  // let testNum = 0
+
+  function addShip(e){
+    // console.log('addShip firing')
+    let tempShips = myShips
+    tempShips.push(e.target.id)
+    setMyShips(tempShips)
+    console.log(myShips)
+    // testNum++
   }
 
   return (

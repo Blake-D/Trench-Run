@@ -1,7 +1,7 @@
 function Assemble(props){
-    console.log(props)
+    // console.log(props)
     let availableShips = props.ships.map((ship, i) => {
-        return <li onClick={props.addShip}>{ship.name}</li>
+        return <li id={ship.name} onClick={props.addShip}>{ship.name}</li>
     })
     return(
         <div>

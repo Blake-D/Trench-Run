@@ -5,18 +5,12 @@ import { Link } from 'react-router-dom'
 import Title from './components/Title'
 import Assemble from './components/Assemble'
 import Battle from './components/Battle'
-import { render } from '@testing-library/react'
 const axios = require('axios')
-// const cors = require('cors')
-// const STAR_WARS_URL = process.env.STAR_WARS_URL
 
 function App() {
 
   const [ships, setShips] = useState([])
   const [myShips, setMyShips] = useState([])
-  const [redirect, setRedirect] = useState('/battle')
-
-  // console.log(myShips)
 
   useEffect(() => {
     axios.get('http://localhost:8000/')
@@ -27,20 +21,24 @@ function App() {
 
   function addShip(e) {
     if (myShips.length < 5) {
-      let tempShips = myShips
-      tempShips.push(e.target.id)
-      setMyShips(tempShips)
-      console.log(myShips)
+      let tempMyShips = myShips
+      tempMyShips.push(e.target.id)
+      setMyShips(tempMyShips)
     } else {
       alert("Roster full")
     }
   }
 
+  // const dynamicList = () => {
+  //   console.log(myShips)
+  //   return ships.filter(ship => !myShips.includes(ship))
+  // }
+
   return (
     <div>
       <Router>
         <Route exact path='/' render={Title} />
-        <Route path='/assemble' render={() => <Assemble ships={ships} addShip={addShip} myShips={myShips} />} />
+        <Route path='/assemble' render={() => <Assemble addShip={addShip} ships={ships} />} />
         <Route path='/battle' render={() => <Battle myShips={myShips} /> } />
       </Router>
     </div>

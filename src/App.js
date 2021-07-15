@@ -17,13 +17,30 @@ function App() {
       .then(shipData => {
         setShips(shipData.data)
       })
-  }, [])
+  }, [myShips])
+
+  // function checkShip(shp){
+  //   return !myShips.includes(shp)
+  // }
 
   function addShip(e) {
     if (myShips.length < 5) {
-      let tempMyShips = myShips
-      tempMyShips.push(e.target.id)
-      setMyShips(tempMyShips)
+      if(myShips.includes(e.target.id)){
+        alert('already in fleet')
+      } else{
+        let tempMyShips = myShips
+        tempMyShips.push(e.target.id)
+        setMyShips(tempMyShips)
+        let tempShips = []
+        for(let i = 0; i < ships.length; i++){
+          if(!myShips.includes(ships[i])){
+            tempShips.push(ships[i])
+          }
+        }
+        setShips(tempShips)
+      }
+      console.log(ships)
+      
     } else {
       alert("Roster full")
     }
@@ -38,7 +55,7 @@ function App() {
     <div>
       <Router>
         <Route exact path='/' render={Title} />
-        <Route path='/assemble' render={() => <Assemble addShip={addShip} ships={ships} />} />
+        <Route path='/assemble' render={() => <Assemble addShip={addShip} ships={ships} myShips={myShips} />} />
         <Route path='/battle' render={() => <Battle myShips={myShips} /> } />
       </Router>
     </div>

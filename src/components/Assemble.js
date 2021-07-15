@@ -1,15 +1,21 @@
 import { Link } from 'react-router-dom'
-import Battle from './Battle'
+import AvailableShips from './AvailableShips'
+import MyShips from './MyShips'
 
 function Assemble(props){
     // console.log(props)
     let availableShips = props.ships.map(ship => {
         return <li id={ship.name} onClick={props.addShip}>{ship.name}</li>
     })
+
+    let myShips = props.myShips.map(ship => {
+        return <li>{ship}</li>
+    })
     return(
         <div>
             <Link to="/battle">Begin Battle!</Link>
-            <ul>{availableShips}</ul>
+            <AvailableShips availableShips={availableShips}/>
+            <MyShips myShips={myShips} />
         </div>
     )
 }

@@ -1,6 +1,6 @@
 function Battle(props){
     let myShips = props.myShips.map(ship => {
-        return <li>{ship}</li>
+        return <li><img src={ship}/></li>
     })
     return(
         <div>

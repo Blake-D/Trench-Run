@@ -1,6 +1,5 @@
 import React, { useEffect, useState, } from 'react'
-import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom'
-import { Link } from 'react-router-dom'
+import { BrowserRouter as Router, Route } from 'react-router-dom'
 // import './App.css'
 import Title from './components/Title'
 import Assemble from './components/Assemble'
@@ -17,16 +16,14 @@ function App() {
       .then(shipData => {
         setShips(shipData.data)
       })
-  }, [myShips])
+  }, [])
 
-  // function checkShip(shp){
-  //   return !myShips.includes(shp)
-  // }
+  console.log(ships)
 
   function addShip(e) {
     if (myShips.length < 5) {
       if(myShips.includes(e.target.id)){
-        alert('already in fleet')
+        alert('Ship already in fleet')
       } else{
         let tempMyShips = myShips
         tempMyShips.push(e.target.id)
@@ -39,17 +36,10 @@ function App() {
         }
         setShips(tempShips)
       }
-      console.log(ships)
-      
     } else {
-      alert("Roster full")
+      alert("Roster Full")
     }
   }
-
-  // const dynamicList = () => {
-  //   console.log(myShips)
-  //   return ships.filter(ship => !myShips.includes(ship))
-  // }
 
   return (
     <div>

@@ -11,31 +11,12 @@ function App() {
   const [ships, setShips] = useState([])
   const [myShips, setMyShips] = useState([])
 
-  // useEffect(() => {
-  //   axios.get('http://localhost:8000/')
-  //     .then(shipData => {
-  //       setShips(shipData.data)
-  //     })
-  // }, [])
-
-  // useEffect(() => {
-  //   axios.get('https://swgoh.gg/api/ships')
-  //     .then(shipData => {
-  //       setShips(shipData.data)
-  //     })
-  // }, [])
-
   useEffect(() => {
     axios.get('/api/ships')
-    .then(res => console.log(res.data))
-    // .then(res => res.json())
-    // .then(shipData => {
-    //   shipData = Object.values(shipData.data)
-    //   setShips(shipData)
-    // })
+      .then(shipData => {
+        setShips(shipData.data)
+      })
   }, [])
-
-  console.log(ships)
 
   function addShip(e) {
     if (myShips.length < 5) {

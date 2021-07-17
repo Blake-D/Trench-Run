@@ -18,10 +18,18 @@ function App() {
       })
   }, [])
 
+  function checkForSub(arr, subArr) {
+    if ((arr.toString()).indexOf(subArr.toString()) > -1) {
+      return true
+    } else {
+      return false
+    }
+  }
+
   function addShip(e) {
     let attributes = e.target.id.split(",")
     if (myShips.length < 5) {
-      if(myShips.includes(attributes)){
+      if(checkForSub(myShips, attributes)){
         alert('Ship already in fleet')
       } else{
         let tempMyShips = myShips
@@ -40,11 +48,15 @@ function App() {
     }
   }
 
+  function clearFleet(e){
+    setMyShips([])
+  }
+
   return (
     <div>
       <Router>
         <Route exact path='/' render={Title} />
-        <Route path='/assemble' render={() => <Assemble addShip={addShip} ships={ships} myShips={myShips} />} />
+        <Route path='/assemble' render={() => <Assemble addShip={addShip} clearFleet={clearFleet} ships={ships} myShips={myShips} />} />
         <Route path='/battle' render={() => <Battle myShips={myShips} /> } />
       </Router>
     </div>

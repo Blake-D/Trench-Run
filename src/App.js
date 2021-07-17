@@ -37,7 +37,7 @@ function App() {
         setMyShips(tempMyShips)
         let tempShips = []
         for(let i = 0; i < ships.length; i++){
-          if(!myShips.includes(ships[i])){
+          if(!checkForSub(myShips, ships[i])){
             tempShips.push(ships[i])
           }
         }
@@ -48,7 +48,7 @@ function App() {
     }
   }
 
-  function clearFleet(e){
+  function clearFleet(){
     setMyShips([])
   }
 

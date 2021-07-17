@@ -8,6 +8,7 @@ function Attackers(props) {
                     if(ship.role === "Attacker"){
                         return (
                             <img
+                                className="ship-option"
                                 src={`https://swgoh.gg/${ship.image}`}
                                 id={[ship.name, `https://swgoh.gg/${ship.image}`, ship.role, ship.power]}
                                 onClick={props.addShip}

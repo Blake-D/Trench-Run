@@ -4,6 +4,33 @@ body{
   text-align: center;
 }
 
+img{
+  height: 15vmin;
+  width: auto;
+  margin: 5px;
+}
+
+.ship-option{
+  border: solid black 1px;
+}
+
+.ship-option:hover{
+  border: solid yellow 1px;
+}
+
+.my-ship{
+  border: solid yellow 1px;
+}
+
+#my-ships{
+  padding: 0;
+  margin: 0;
+  width: 100vw;
+  height: 20vh;
+  border-top: solid yellow 2px;
+  border-bottom: solid yellow 2px;
+}
+
 #available-ships{
   padding: 0;
   margin: 0;
@@ -11,24 +38,10 @@ body{
   height: 80vh;
 }
 
-#my-ships{
-  padding: 0;
-  margin: 0;
-  width: 100vw;
-  height: 20vh
+#begin-battle{
+  padding: 1vh 0 1vh 0;;
 }
 
-img{
-  height: 15vmin;
-  width: auto;
-  margin: 5px;
-  border: solid black 1px;
-}
-
-img:hover{
-  border: solid yellow 1px;
-}
-
-#link{
-  color: yellow;
+#battle-view{
+  padding: 40vh 0 40vh 0;
 }

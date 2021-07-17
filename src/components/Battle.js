@@ -1,8 +1,8 @@
 function Battle(props) {
     return (
-        <div>
+        <div id="battle-view">
             {props.myShips.map(ship => (
-                <img src={ship[1]} />
+                <img className={"my-ship"} src={ship[1]} />
             ))}
         </div>
     )

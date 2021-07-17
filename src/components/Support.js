@@ -8,6 +8,7 @@ function Support(props) {
                     if(ship.role === "Support"){
                         return (
                             <img
+                                className="ship-option"
                                 src={`https://swgoh.gg/${ship.image}`}
                                 id={[ship.name, `https://swgoh.gg/${ship.image}`, ship.role, ship.power]}
                                 onClick={props.addShip}

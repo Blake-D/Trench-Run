@@ -15,9 +15,14 @@ function Assemble(props) {
     return (
         <div>
             <Link to="/battle">Begin Battle!</Link>
-            <div style={{ display: "flex" }}>
-                <AvailableShips ships={props.ships} addShip={props.addShip}/>
-                <MyShips myShips={props.myShips} clearFleet={props.clearFleet}/>
+            {/* <div style={{ display: "flex" }}> */}
+            <div>
+            <div id="my-ships">
+                    <MyShips myShips={props.myShips} clearFleet={props.clearFleet}/>
+                </div><br></br>
+                <div id="available-ships">
+                    <AvailableShips ships={props.ships} addShip={props.addShip}/>
+                </div>
             </div>
         </div>
     )

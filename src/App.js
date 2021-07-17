@@ -19,12 +19,13 @@ function App() {
   }, [])
 
   function addShip(e) {
+    let attributes = e.target.id.split(",")
     if (myShips.length < 5) {
-      if(myShips.includes(e.target.id)){
+      if(myShips.includes(attributes)){
         alert('Ship already in fleet')
       } else{
         let tempMyShips = myShips
-        tempMyShips.push(e.target.id)
+        tempMyShips.push(attributes)
         setMyShips(tempMyShips)
         let tempShips = []
         for(let i = 0; i < ships.length; i++){

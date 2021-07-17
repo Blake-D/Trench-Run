@@ -4,23 +4,14 @@ import MyShips from './MyShips'
 
 function Assemble(props) {
 
-    // let myShips = props.myShips.map(ship => {
-    //     return (
-    //         <li>
-    //             <img src={ship[1]} />
-    //         </li>
-    //     )
-    // })
-
     return (
         <div>
-            <Link to="/battle">Begin Battle!</Link>
-            {/* <div style={{ display: "flex" }}> */}
+            <Link style={{color: 'yellow'}} to="/battle">Begin Battle!</Link>
             <div>
             <div id="my-ships">
                     <MyShips myShips={props.myShips} clearFleet={props.clearFleet}/>
                 </div><br></br>
-                <div id="available-ships">
+                <div id="available-ships" style={{overflow: "scroll"}}>
                     <AvailableShips ships={props.ships} addShip={props.addShip}/>
                 </div>
             </div>

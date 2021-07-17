@@ -1,4 +1,6 @@
 body{
+  color: yellow;
+  background-color: black;
   text-align: center;
 }
 
@@ -6,18 +8,27 @@ body{
   padding: 0;
   margin: 0;
   width: 100vw;
-  height: 70vh;
+  height: 80vh;
 }
 
 #my-ships{
   padding: 0;
   margin: 0;
   width: 100vw;
-  height: 30vh
+  height: 20vh
 }
 
 img{
-  height: 20vmin;
+  height: 15vmin;
   width: auto;
   margin: 5px;
+  border: solid black 1px;
+}
+
+img:hover{
+  border: solid yellow 1px;
+}
+
+#link{
+  color: yellow;
 }

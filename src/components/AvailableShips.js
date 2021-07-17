@@ -1,8 +1,14 @@
-function AvailableShips(props){
-    return(
+function AvailableShips(props) {
+    console.log(props)
+    return (
         <div>
-            <h1>Available Ships</h1>
-            <ul>{props.availableShips}</ul>
+            {props.ships.map(ship => (
+                <img
+                    src={`https://swgoh.gg/${ship.image}`}
+                    id={[ship.name, `https://swgoh.gg/${ship.image}`, ship.role, ship.power]}
+                    onClick={props.addShip}
+                />
+            ))}
         </div>
     )
 }
